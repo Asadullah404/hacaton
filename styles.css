@@ -2,10 +2,12 @@
     font-family: Arial, sans-serif;
     background: #f6f5f7;
     display: flex;
+    flex-direction: column; /* Ensure flexbox is column layout */
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: auto; /* Set height to auto to adjust to content */
     margin: 0;
+    padding-bottom: 40px; /* Add padding to the bottom */
 }
 
 
@@ -38,7 +40,7 @@ input {
     width: 100%;
 }
 
-button3:active {
+.button3:active {
     transform: scale(0.95);
 }
 
@@ -55,6 +57,7 @@ h1 {
     padding: 30px;
     text-align: center;
 }
+/* Add this to your CSS file */
 .container1 {
     background: #fff;
     border-radius: 10px;
@@ -63,7 +66,9 @@ h1 {
     max-width: 100%;
     padding: 30px;
     text-align: center;
+    margin-bottom: 40px; /* Add margin to the bottom */
 }
+
 
 input[type="text"],
 input[type="number"],
@@ -75,7 +80,7 @@ input[type="file"] {
     border: 1px solid #ddd;
 }
 
-button3 {
+.button3 {
     width: 100%;
     padding: 12px;
     background-color: #ff4b2b;
@@ -86,16 +91,9 @@ button3 {
     cursor: pointer;
 }
 
-button3:hover {
+.button3:hover {
     background-color: #e03e24;
 }
-
-
-
-
-
-
-
 
 
 /* Container styles */
@@ -103,51 +101,74 @@ button3:hover {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-}
-
-/* Flexbox container for products */
-#products-container {
+  }
+  
+  /* Flexbox container for products */
+  #products-container {
     display: flex;
     flex-wrap: wrap; /* Allow items to wrap onto the next line */
     gap: 20px; /* Space between items */
     justify-content: flex-start; /* Align items to the start of the container */
-}
-
-/* Product Card Styles */
-.product {
+    align-items: stretch; /* Ensure all items in a row have the same height */
+  }
+  
+  /* Product Card Styles */
+  .product {
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: 250px; /* Fixed width */
-    height: 400px; /* Fixed height */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     box-sizing: border-box; /* Ensure padding and border are included in width/height */
-}
-
-.product img {
+    min-width: 200px; /* Minimum width to ensure readability */
+    max-width: 100%; /* Ensures card doesn't exceed container width */
+    min-height: 300px; /* Adjust this value based on your desired height */
+  }
+  
+  /* Ensure the images inside the cards are consistent */
+  .product img {
     max-width: 100%;
     height: auto;
     border-radius: 10px;
     max-height: 200px; /* Ensure image doesn't overflow */
     object-fit: cover; /* Keep the image aspect ratio */
-}
-
-.product h2 {
+  }
+  
+  .product h2 {
     font-size: 20px;
     margin: 10px 0;
-}
-
-.product p {
+  }
+  
+  .product p {
     font-size: 16px;
     margin: 5px 0;
-}
-
-
-
+  }
+  
+  /* Media Queries for Responsiveness */
+  
+  /* Large screens (desktops, laptops) */
+  @media (min-width: 992px) {
+    .product {
+      flex: 1 1 250px; /* Base size 250px */
+    }
+  }
+  
+  /* Medium screens (tablets) */
+  @media (min-width: 768px) and (max-width: 991px) {
+    .product {
+      flex: 1 1 48%; /* Two products per row, allowing flexibility */
+    }
+  }
+  
+  /* Small screens (mobiles) */
+  @media (max-width: 767px) {
+    .product {
+      flex: 1 1 100%; /* Full width for mobile */
+    }
+  }
 
 
 
